@@ -36,7 +36,7 @@ const geocodeAddress = async (address) => {
       return {
         lat,
         lon,
-        isNotPlace: addressData.class !== "place",
+        // isNotPlace: addressData.class !== "place",
         zip: reverseResponse.data.address.postcode,
       };
     } else {
@@ -153,12 +153,12 @@ const main = async () => {
   let results = [];
   for (const address of addresses) {
     try {
-      const { lat, lon, isNotPlace, zip } = await geocodeAddress(address);
-      if (isNotPlace) {
-        console.log("Not a place");
-        results.push({ address, lat, lon, layers: [], error: "Bad Address" });
-        continue;
-      }
+      const { lat, lon, zip } = await geocodeAddress(address);
+    //   if (isNotPlace) {
+    //     console.log("Not a place");
+    //     results.push({ address, lat, lon, layers: [], error: "Bad Address" });
+    //     continue;
+    //   }
       console.log(`Geocoded address: ${lat}, ${lon}`);
       const result = await queryArcGIS(address, lat, lon, zip);
       results.push(result);
