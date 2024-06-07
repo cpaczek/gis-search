@@ -53,8 +53,8 @@ const queryArcGIS = async (address, lat, lon, zip) => {
     { id: 1, name: "Buffer_Low_income_Communities" },
     { id: 3, name: "Disadvantaged_Communities_CES4" },
     { id: 5, name: "Low_income_Communities" },
-    { id: 6, name: "Buffer_Low_income_Household" },
-    { id: 7, name: "Low_income_Household" },
+    // { id: 6, name: "Buffer_Low_income_Household" },
+    // { id: 7, name: "Low_income_Household" },
   ]; // Layer IDs and names to query
 
   try {
