@@ -28,11 +28,15 @@ const geocodeAddress = async (address) => {
         },
       });
       console.log("Reverse geocode response:", reverseResponse.data);
+      // somtimes responts.data is array sometimes its just an object lets normalize it
+      const addressData = Array.isArray(reverseResponse.data)
+        ? reverseResponse.data[0]
+        : reverseResponse.data;
 
       return {
         lat,
         lon,
-        isNotPlace: response.data[0].class !== "place",
+        isNotPlace: addressData.class !== "place",
         zip: reverseResponse.data.address.postcode,
       };
     } else {
